@@ -209,7 +209,7 @@ app.post("/get-single-item", (req, res) => {
 });
 
 
-app.post("/delete-cart-item", (req, res) => {
+app.post("/delete-all-items", (req, res) => {
   const data = req.body;
   data.map((item, index) => {
     Cart.findOneAndDelete({ loginId: item.loginId }).then((err) => {
