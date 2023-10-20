@@ -106,7 +106,7 @@ app.post(
 app.post("/add-to-cart", async (req, res) => {
   const data = req.body;
   console.log(req.body);
-  Cart.findOne({ itemIndex: data.itemIndex }).then(async (result, err) => {
+  Cart.findOne({ itemIndex: data.itemIndex, loginId: data.loginId }).then(async (result, err) => {
     console.log(result)
     if (result) {
       Cart.findOneAndUpdate(
@@ -216,13 +216,13 @@ app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
 });
 
-// axios.post('http://localhost:8000/add-to-cart', {
+// axios.post('https://unicorn-backend-new.vercel.app/add-to-cart', {
 //     productName: "fh26c",
 //     productPrice: "fcgnv",
 //     productDescription: "dacszssfdf",
 //     productImage: "dgcsf",
 //     loginId: "dsf"
-// })
+// }).then(res => console.log(res.data))
 
 // axios.post('http://localhost:8000/get-cart-items', {
 //     loginId: "dsf"
