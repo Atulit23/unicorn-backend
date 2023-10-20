@@ -208,24 +208,6 @@ app.post("/get-single-item", (req, res) => {
   });
 });
 
-
-app.post("/delete-all-items", (req, res) => {
-  const data = req.body;
-  Cart.find({loginId: data.loginId}).then((result, err) => {
-    console.log(result)
-    console.log(err)
-  })
-  // data.map((item, index) => {
-  //   Cart.findOneAndDelete({ loginId: item.loginId }).then((err) => {
-  //     if (err) {
-  //       res.send(err);
-  //     } else {
-  //       res.send({ message: "Item deleted successfully" });
-  //     }
-  //   });
-  // })
-});
-
 app.get("/", (req, res) => {
   res.send("Hi!");
 });
