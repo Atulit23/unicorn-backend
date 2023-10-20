@@ -199,7 +199,7 @@ app.post("/get-cart-items", (req, res) => {
 app.post("/get-single-item", (req, res) => {
   const data = req.body;
   console.log(req.body);
-  Cart.find({ itemIndex: data.itemIndex }).then((result, err) => {
+  Cart.find({ itemIndex: data.itemIndex, loginId: data.loginId }).then((result, err) => {
     if (err) {
       res.send(err);
     } else {
