@@ -208,6 +208,20 @@ app.post("/get-single-item", (req, res) => {
   });
 });
 
+
+app.post("/delete-cart-item", (req, res) => {
+  const data = req.body;
+  data.map((item, index) => {
+    Cart.findOneAndDelete({ loginId: item.loginId }).then((err) => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send({ message: "Item deleted successfully" });
+      }
+    });
+  })
+});
+
 app.get("/", (req, res) => {
   res.send("Hi!");
 });
